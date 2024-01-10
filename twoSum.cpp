@@ -1,6 +1,5 @@
 //Solution using two pointers.
 #include<vector>
-#include<unordered_set>
 using namespace std;
 vector<int> twoNumberSum(vector<int>array, int targetSum)
 {
