@@ -1,3 +1,6 @@
+//We will use sliding window in this question.
+/*Left and right will start from 0. Right will traverse ahead adding the numbers to sum(0). 
+When the sum becomes greater than or equal to target, we will replace min with that number of subarray element.At last,we will return the min.*/
 class Solution {
     public:
       int minSubArrayLen(int target, vector<int>& nums)
