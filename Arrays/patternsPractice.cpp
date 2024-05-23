@@ -156,3 +156,18 @@ string temp= "ABCDE";
         }
         cout<<endl;
     }
+
+//pattern 11 
+//for pattern 11, just change the j loop condition in pattern 10. (int j=0; j<5-i;j++)
+
+//pattern 12
+//for pattern 12, just remove the countern increment line from pattern 9  and you are good to go.
+ string temp= "ABCDE";
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<=i;j++)
+        {
+            cout<<temp[i];
+        }
+      cout<<endl;
+    }
