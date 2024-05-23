@@ -144,3 +144,15 @@ int main()
     }
     return 0;
 }
+
+
+//pattern 10
+string temp= "ABCDE";
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<=i;j++)
+        {
+            cout<<temp[j];
+        }
+        cout<<endl;
+    }
