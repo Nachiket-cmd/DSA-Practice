@@ -86,6 +86,46 @@ int main() {
         }
         cout<<endl;
     }
-    
-    
+
+    //pattern 8
+    for(int i=0;i<9;i++)
+    {
+      if(i<5){
+        for(int j=0;j<=i;j++){
+            cout<<"*";
+        } }
+        else {
+            for(int j=0;j<9-i;j++)
+            {
+                cout<<"*";
+            }
+        }
+        cout<<endl;
+    }
+
+    //pattern 8 
+int main()
+{
+    for (int i=0;i<4;i++)
+    {
+        //numbers
+        for(int j=1;j<=i+1;j++)
+        {
+            cout<<j;
+        }
+        
+        //spaces
+        for(int j=0;j<((2*4) - (2*(i+1))); j++)
+        {
+            cout<<" ";
+        }
+        //numbers
+        for(int j=i+1;j>0;j--)
+        {
+            cout<<j;
+        }
+        cout<<endl;
+    }
+    return 0;
+} 
 }
