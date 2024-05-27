@@ -171,3 +171,41 @@ string temp= "ABCDE";
         }
       cout<<endl;
     }
+
+
+//pattern 13 
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    for(int i=0;i<4;i++)
+    {
+        char ch='A';
+        //spaces 
+        for(int j=0;j<(4-(i+1));j++)
+        {
+           cout<<" ";
+        }
+        
+        //Alphabets
+        for(int j=0;j<(2*i)+1;j++)
+        {
+            cout<<ch;
+            if(j>=(2*i+1)/2) 
+            {
+                ch--;
+            }
+            else{
+                ch++;
+            }
+        }
+        
+        //spaces 
+        for(int j=0;j<(4-(i+1));j++)
+        {
+           cout<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
