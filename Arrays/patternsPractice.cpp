@@ -209,3 +209,71 @@ int main() {
     }
     return 0;
 }
+
+
+//pattern 19, 20 together
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    // for(int i=0;i<5;i++)
+    // {
+    //         //stars
+    //         for(int j=0;j<5-i;j++)
+    //         {
+    //             cout<<"*";
+    //         }
+            
+    //         //spaces
+    //         for(int j=0;j<(2*i);j++)
+    //         {
+    //             initS+=2;
+    //             cout<<" ";
+    //         }
+            
+    //         //stars
+    //         for(int j=0;j<5-i;j++)
+    //         {
+    //             cout<<"*";
+    //         }
+    //         cout<<endl;
+    // }
+        
+        for(int i=1;i<=5;i++)
+    {
+            //stars
+            for(int j=0;j<i;j++)
+            {
+                cout<<"*";
+            }
+            
+            //spaces
+            for(int j=0;j<2*(5-i);j++)
+            {
+                cout<<" ";
+            }
+            
+            //stars
+            for(int j=0;j<i;j++)
+            {
+                cout<<"*";
+            }
+            cout<<endl;
+    }
+    for(int i=0;i<4;i++)
+    {
+        for(int j=0;j<4-i;j++){
+        cout<<"*";}
+        
+        for(int j=0;j<(2*i)+2;j++)
+        {
+            cout<<" ";
+        }
+        
+        for(int j=0;j<4-i;j++){
+        cout<<"*";}
+        cout<<endl;
+    }
+    
+        return 0;
+    }
