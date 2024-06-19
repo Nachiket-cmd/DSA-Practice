@@ -10,7 +10,7 @@ Output: [[1,0,1],[0,0,0],[1,0,1]] */
 3. Solved using Array + Hash Table (Unordered set). TC : O(N*M), SC : O(N+M).
 4. Solved using Matrix with Constant space. Optimized Approaches. TC : O(N*M), SC : O(1).   */
 
-//Solution 1 
+//Approach 1 
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
@@ -57,4 +57,59 @@ public:
 };
 
 
-//Solution 2 
+//Approach 2
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+       int row = matrix.size();
+       int col = matrix[0].size();
+       for(int i=0;i<row;i++)
+       {
+        for(int j=0;j<col;j++)
+        {
+            if(matrix[i][j]==0)
+            {
+                for(int k=0;k<row;k++)
+                {
+                    if(matrix[k][j]!=0)
+                    {
+                        matrix[k][j]=INT_MAX-3213;
+                    }
+                }
+            }
+        }
+       }
+
+       for(int i=0;i<row;i++)
+       {
+        for(int j=0;j<col;j++)
+        {
+            if(matrix[i][j]==0)
+            {
+                for(int k=0;k<col;k++)
+                {
+                    if(matrix[i][k]!=0)
+                    {
+                        matrix[i][k]=INT_MAX-3213;
+                    }
+                }
+            }
+        }
+       }
+
+       for(int i=0;i<row;i++)
+       {
+        for(int j=0;j<col;j++)
+        {
+            if(matrix[i][j]==INT_MAX-3213)
+            {
+                matrix[i][j]=0;
+            }
+        }
+       }
+    }
+};
+
+
+//Approach 3
+
