@@ -3,6 +3,19 @@
 // We can also used XOR gates as logic which will be the best. TC - O(n) SC- O(1)
 class Solution {
 public:
+    int singleNumber(vector<int>& nums) { 
+       int ans=0;
+	   for(auto x:nums)
+	   ans^=x;
+	   return ans;
+    }
+};
+
+
+
+
+class Solution {
+public:
     bool compareByValue(const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a.second < b.second;  // Compare based on the values
     }
