@@ -11,21 +11,59 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-Partition(int l,int h,int arr[],int n)
+int Partition(int l , int r , vector<int>&arr )
 {
-  int pivot;
-  pivot = arr[l];
-  int i = l;
-  int j = h;
-  
-
-int main()
-{
-  int arr[10] = {10,16,8,12,15,6,3,9,5,INT_MAX};
-  int pivot = arr[0];
-  int i = 0;
-  int j = arr.size();
-  
+ int pivot = arr[l];
+ int i = l;
+ int j = r;
+  while(i<j)
+  {
+    do{
+      i++;
+    }while(arr[i]<=pivot);
+    
+    do{
+      j--;
+    }while(arr[j]>pivot);
+    
+    if(i<j)
+    {
+      swap(arr[i],arr[j]);
+    }
+  }
+  swap(arr[j],arr[l]);
+  return j;
 }
 
+void  quickSort(int l ,int r , vector<int> &arr)
+{
+  if(l<r)
+  {
+    int flag = Partition(l,r,arr);
+    quickSort(l,flag,arr);
+    quickSort(flag+1,r,arr);
+  }
+}
+
+int main() 
+{
+  vector<int>arr;
+  int input=0;
+  int size;
+  cout<<"Enter the number of element in the array";
+  cin>>size;
+  for(int i = 0 ; i<size ; i++)
+  {
+    cin>>input;
+    arr.push_back(input);
+  }
+  int l = 0;
+  int r = arr.size();
+  quickSort(l,r,arr);
+  for(int i =0 ; i<size; i++)
+  {
+    cout<<arr[i]<<" ";
+  }
+  return 0;
+}
 
