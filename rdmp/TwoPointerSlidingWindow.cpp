@@ -3,7 +3,7 @@ All the questions generally will use 2 pointers (we can take them as l and r)
 4 Types of Questions:
 1. Constant Window: We have particular condition like finding the biggest sum with CONSECUTIVE ELEMENTS.
     The elements should be consecutive. 
-    We can simply shift our pointers l and r ahead to move the window ahead and avoid all the elements in
+    We can simply shift our pointers l and r ahead to move the window ahead and avoid adding up all the elements again and again in
     the window.
     We will stop when r will be smaller than the size of the array(r<sizeofArray)
     
@@ -14,6 +14,7 @@ All the questions generally will use 2 pointers (we can take them as l and r)
      l++;
      r++;
      sum = sum + arr[i];
+     MaxSum = max(MaxSum,sum);
     }
 
   2.  Longest Subarray or Substring(Dynamic Window): In this you basically will be asked to find the size of the subarray
@@ -21,7 +22,7 @@ All the questions generally will use 2 pointers (we can take them as l and r)
       remain the same. You are required to find that CONSECUTIVE ELEMENTS subarray which will satisfy the 
       condition of the given question.
 
-      In Interviews, we will start with brute force(generating all the subarrays) and then move on to the 
+      In Interviews, we will start with brute force(generating all the subarrays which will be O(n^2)) and then move on to the 
       optimal one.
 
       Better solution: O(2n)
@@ -57,7 +58,7 @@ All the questions generally will use 2 pointers (we can take them as l and r)
       Optimal Solution: O(n)
       - For optimizing further, 
       When we are doing the shrinking step, why are we shrinking the subarray more if the subarray becomes
-      smaller than the current max subarray size? There is no need to shrink it further it goes smaller 
+      smaller than the current max subarray size? There is no need to shrink it further if it goes smaller 
       than the current max subarray size. Now, we can only use this optimization when the question is only
       asking us the length of the subarray. If the question would have been to find out the subarray, then
       we cannot skip any element like this.
