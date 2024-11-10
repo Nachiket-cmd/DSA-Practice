@@ -1,7 +1,7 @@
  /*Our unoptimised algorithm(TC- O(n^2)  SC- O(256)) for the interview can be to use a hash array of size 256 inialised with 0. Then iterate through all the possible subarrays and then check if the element has been repeated
  by taking the reference of hasharray for past occurences. If it repeats, break.
  
- Optimised Solution: TC- O(n) 
+ Optimised Solution: TC- O(n)  */
   class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -27,4 +27,3 @@ public:
         return maxans;
     }
 };
- */
