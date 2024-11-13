@@ -95,5 +95,21 @@ int main()
 
 //How to convert an array to a LL.
 /* Head will always point to the first element. */
+Node* convertArraytoLL(vector<int>&arr) {  //We cannot return the entire linked list thats why we will 
+ //return the head (Node*)
+ Node* head = new Node(arr[0]);
+ Node* mover = head;
+ for(int i =1 ; i<arr.size() ; i++)
+  {
+   Node* temp = new Node(arr[i]);
+   mover->next = temp;
+   mover = temp;
+  }
+ return head;
+}
 
-  
+int main() {
+ vector<int>arr = {12,8,5,3};
+ Node* head = convertoLL(arr);
+ cout<<head->data;
+}
