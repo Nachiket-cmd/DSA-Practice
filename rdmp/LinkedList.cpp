@@ -28,7 +28,7 @@
   struct Node {
   int data;
   Node* next; // This is Node* because the next LL will also be a Node Struct and this will store the address to it.
-  Node(data1,next1) //This is the constructor which will be used to initialize a struct object.
+  Node(int data1,Node* next1) //This is the constructor which will be used to initialize a struct object.
   {
    data = data1;
    next = next1; 
