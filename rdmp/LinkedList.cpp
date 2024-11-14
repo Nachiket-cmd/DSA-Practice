@@ -20,7 +20,7 @@
   WHERE IS IT USED?
   - Used in Stack and Queue
   - We use it in a browser.
-  - Struct and Class in C++ for Linked List
+  - Struct and Class in C++ for Linked List (Preferably class because it then provides us with OOPS concepts)
   int x = 2;
   int* y = &x; //Storing a pointer to memory location of x.
   - so to store the value and the pointer to the next location together we will create a self defined
