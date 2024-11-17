@@ -8,7 +8,7 @@
   HOW DOES IT DO THAT?
   - Linked lists are not stored in contiguous locations. 
   - You cannot iterate like arrays on this one.
-  - They are dynamic and their size can be increased in any moment.
+  - They are dynamic and their size can be increased/decreased in any moment.
   - Along with the data in the memory, we also store the pointer to the next element.
   - Starting of Linked List: Head
   - End of Linked List: Tail (Pointer will point to nullptr) 
@@ -53,15 +53,6 @@ struct Node {
     }
 };
 
-int main() 
-{
-    vector<int>arr = {2,5,1,2,7};
-    Node* y = new Node(arr[0],nullptr);
-    cout<< y->next;
-    return 0;
-}
-
-
 //Now we will do the same thing but with class instead of struct because struct doesnt offer OOPS concepts like abstraction, encapsulation etc.
 
 #include<bits/stdc++.h>
@@ -85,8 +76,8 @@ class Node {
 int main() 
 {
     vector<int>arr = {2,5,1,2,7};
-    Node* y = new Node(arr[0],nullptr);
-    cout<< y->next;
+    Node* head = new Node(arr[0],nullptr);
+    cout<< head->next; //this will return nullptr as our next pointer is currently pointing to 0th index as it is the head of the LL.
     return 0;
 }
 
