@@ -52,18 +52,25 @@ Node* deleteTail(Node* head)
     temp = temp->next;
    }
    delete(temp->next);
-   return head;
    temp->next = nullptr;
+   return head;
 }
 
 Node* deleteKthElement(Node* head, int k)
 {
-  Node* temp = head;
-  Node* mover  = new Node(head);
+  if(head==NULL) return head;
   int count = 1;
-  while(mover != null)
+  Node* temp = head;
+  while(temp!= NULL) //this will basically check if we are still in the LL.
   {
-    
+    count++;
+    if(count==k-1)
+    {
+      temp->next = temp->next->next;
+      free(temp->next);
+      break;
+    }
+    return head;
   }
 }
 
@@ -72,7 +79,7 @@ Node* convertArrtoLL(vector<int>&arr)
  Node* head = new Node(arr[0]);
  Node* mover = head;
  for(int i = 1 ; i<arr.size() ; i++)
- {
+ { 
    Node* temp = new Node(arr[i]);
    mover->next = temp;
    mover = temp;
