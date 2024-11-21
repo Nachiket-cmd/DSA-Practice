@@ -74,6 +74,30 @@ Node* deleteKthElement(Node* head, int k)
   }
 }
 
+Node* deleteElementele(Node* head, int ele)
+{
+  Node* temp = head;
+  Node* prev = NULL;
+  int count = 0;
+  if(temp->data == ele) //array is of size 1 and element is the first one, i.e head.
+  {
+    free(temp);  
+    return head;
+  }
+  while(temp!=NULL)
+  { 
+    if(temp->data == ele)
+    {
+      prev->next = prev->next->next;
+      free(temp);
+      break;
+    }
+    prev = temp;
+    temp = temp->next;
+  }
+   return head;
+}
+
 Node* convertArrtoLL(vector<int>&arr)
 {
  Node* head = new Node(arr[0]);
