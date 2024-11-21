@@ -122,3 +122,56 @@ int main ()
   }
   return 0;
 }
+
+
+//Insertion
+Node* insertHead(Node* head,int val)
+{
+  Node* temp = new Node(val, head);
+  return temp; 
+}
+
+Node* insertTail(Node* head, val)
+{
+  if(head == NULL) return new Node(val); //if the linked list is empty.
+  Node* newNode = new Node(val)
+  Node* temp = head;
+  while(temp->next != NULL)
+  {
+    temp->next;
+  }
+  temp->next = newNode;
+  return head;
+}
+
+Node* insertKpos(Node* head, k,val)
+{
+  if(head == NULL)
+  {
+    if(k==1)
+    {
+        return new Node(val);  //just create the node and insert it in the first place.
+    } 
+  }
+  if(k==1). //which means head
+  {
+    Node* newNode = new Node(val);
+    newNode->next = head;
+    return newNode;
+  }
+  int count = 0;
+  Node* temp = head;
+  while(temp!=NULL) // this will cover all the remaining cases including the tail.
+  {
+    count++;
+    if(count == k-1)
+    {
+      Node* newNode = new Node(val);
+      newNode->next = temp->next;
+      temp->next = newNode;
+      return head;
+    }
+    temp = temp->next;
+  }
+  return head;
+}
