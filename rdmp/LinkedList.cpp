@@ -133,7 +133,7 @@ int main()
     // cout<< x->next;
     vector<int> arr={1,5,2,6,8};
     int num;
-    Node* head = ConvertArrtoLL(arr);
+    Node* head = convertArraytoLL(arr);
     //The lines below are very important as this is how we will traverse throughout a Linked List.
     Node* temp = head;
      while(temp!=nullptr) {
