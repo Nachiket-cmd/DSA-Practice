@@ -9,27 +9,32 @@ previous node at the same time.
 */
 
 //Syntax for DLL in C++
+
+#include<bits/stdc++.h>
+using namespace std;
+
 class Node {
+    public:
     int data;
     Node* next;
     Node* back;
 
     public:
-        Node(int data1, Node* next1 , Node* back1)
-        {
+    Node(int data1, Node* next1 , Node* back1)
+     {
             data = data1;
             next = next1;
             back = back1;
-        }
+     }
 
     public:
-        Node(int data1)
-        {
+    Node(int data1)
+     {
             data = data1;
             next = nullptr;
             back = nullptr;
-        }
-}
+     }
+};
 
 Node* convertArrtoDLL(vector<int>&arr)
 {
@@ -45,12 +50,111 @@ Node* convertArrtoDLL(vector<int>&arr)
     return head;
 }
 
+void print(Node* head)
+{
+    while(head!=NULL)
+    {
+        cout<<head->data<<" ";
+        head = head->next; //why do you always forget to move ahead GDMT!
+    }
+} 
+
+//Deletion
 Node* deleteHead(Node* head)
 {
-    if(head == NULL) //if the LL is empty
+    if(head == NULL || head->next == NULL) //if the LL is empty
     {
         return NULL;
     }
-    Node* temp = head->next;
-    return temp;
+   Node* temp = head;
+   head = head->next;
+   head->back = nullptr;
+   temp->next = nullptr;
+   delete temp;
+   return head;
+}
+
+Node* deleteTail(Node* head) 
+{
+ if(head==NULL || head->next==NULL)
+ {
+    return NULL;
+ }
+  Node* temp = head;
+  while(temp->next != NULL)
+  {
+    temp=temp->next;
+  }
+  temp->back->next = nullptr;
+  temp->back = nullptr;
+  free(temp);
+  return head; 
+}
+
+Node* deleteKthele(Node* head,int k)
+{
+  if(head == NULL)
+  {
+        return NULL;
+  }
+  Node* temp = head;
+  int count = 0;
+  while(temp!= NULL)
+  {
+    count++;
+    if(count == k)
+    {
+      break;
+    }
+    temp=temp->next;
+  }
+  Node* prev = temp->back;
+  Node* front = temp->next;
+  if(prev == NULL && front == NULL) return NULL;
+  else if(front == NULL)
+  {
+    return deleteTail(head);
+  }
+  else if(prev==NULL)
+  {
+    return deleteHead(head);
+  }
+  prev->next = front;
+  front->back = prev;
+  temp->next = nullptr;
+  temp->back = nullptr;
+  free(temp);
+  return head;
+}
+
+//Insertion
+Node* insertBeforeHead(Node* head,int val)
+{
+  Node* temp = new Node(val,head,nullptr);
+  head->back = temp;
+  return temp;
+}
+
+Node* inserBeforeTail(Node* head, int val)
+{
+    if(head->next == NULL) return new Node(val,head,nullptr);
+    else if(head == NULL)  return new Node(val);
+    Node* temp = head;
+    while(temp != NULL)
+    {
+        temp = temp->next;
+    }
+    Node* prev = temp->back;
+    Node* newNode = new Node(val,temp,prev);
+    temp->back = newNode;
+    prev->next = newNode; 
+    return head;
+}
+
+int main()
+{
+    vector<int>arr = {3,7,2,8,4,9};
+    Node* head = convertArrtoDLL(arr);
+    print(head);
+    return 0;
 }
