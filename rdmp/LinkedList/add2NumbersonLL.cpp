@@ -17,10 +17,5 @@ class Node{
             next = nullptr;
         }
 };
+//*****PRO TIP:- Whenever we need to create a new NodeList and perform some operations, always choose the dummyNode concept. *****/
 
-int n = 642;
-while(n!=0)
-{
-    int num = n%10;
-    Node temp = new Node(num, );
-}
