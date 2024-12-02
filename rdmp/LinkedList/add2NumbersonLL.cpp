@@ -24,10 +24,30 @@ class Node{
 Node* add2Numbers(Node* LL1, Node* LL2)
 {
     Node* dummyNode = new Node(-1);
+    Node* temp = dummyNode;
     Node* temp1 = LL1;
     Node* temp2 = LL2;
-    int carry =0;
-    int 
-    while(temp1!=NULL || temp2!=NULL)
+    int carry = 0;
+
+   while(temp1->next != NULL || temp2->next != NULL)
+   {
+     int currSum = carry;
+     if(temp1 != NULL) currSum += temp1->data;
+     if(temp2 != NULL) currSum += temp2->data;
+
+     Node* newNode = new Node(currSum%10);
+     carry = currSum/10;
+
+     temp->next = newNode;
+     temp = temp->next;
+
+     if(temp1) temp1 = temp1->next;
+     if(temp2) temp2 = temp2->next;
+   }
+   if(carry) {
+    Node* newNode = new Node(carry);
+    temp->next = newNode;
+   }
+   return dummyNode->next;
 }
 
