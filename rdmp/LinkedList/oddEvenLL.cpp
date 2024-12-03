@@ -68,23 +68,18 @@ Node* oddEvenLL(Node* head)
 
 Node* oddEvenLLBetter(Node*head)
 {
-    Node* temp = head;
-    while(temp!=NULL && temp->next!=NULL)
-    {
-        temp->next = temp->next->next;
-        temp = temp->next->next;
-    }
-    if(temp) temp->next = temp->next->next;
-    Node* temp1 = temp;
+    Node* odd = head;
+    Node* even = head->next;
+    Node* evenHead = head->next;
 
-    //For even now
-    temp = head->next;
-    Node* temp2 = temp;
-    while(temp!=NULL && temp->next!=NULL)
+    while(odd->next!=NULL && even->next!=NULL)
     {
-        temp->next = temp->next->next;
-    }
+        odd->next = odd->next->next;
+        even->next = even->next->next;
 
-    temp1->next = temp2;
+        odd = odd->next;
+        even = even->next;
+    }
+    odd->next = evenHead;
     return head;
 }
