@@ -27,26 +27,31 @@ Node* deleteNfromEnd(Node* head, int n)
         flag++;
         temp = temp->next;
     }
+    if(n == flag)
+    {
+        Node* newHead = head->next;
+        delete(head);
+        return newHead; 
+    }
+
     int target = flag - n;
     temp = head;
     while(temp!=NULL)
     {
+        target--;
         if(target == 0)
         {
-            if(temp == head)
-            {
-                head = temp->next;
-                free(temp); 
-            }
-            Node* dummyNode  = temp->next;
-            temp->next = temp->next->next;
-            free(dummyNode);
+            break;
         }
-        target--;
-        temp = temp->next;
+        temp = temp->next; 
     }
+    Node* delNode = temp->next;
+    temp->next = temp->next->next;
+    delete(temp);
     return head;
 }
 
 
-//OPTIMAL
+//OPTIMAL SOLUTION
+// We can use the concept of fast and slow pointers. 
+/* */
