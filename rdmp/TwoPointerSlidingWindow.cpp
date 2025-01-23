@@ -5,7 +5,7 @@ All the questions generally will use 2 pointers (we can take them as l and r)
     The elements should be consecutive. 
     We can simply shift our pointers l and r ahead to move the window ahead and avoid adding up all the elements again and again in
     the window.
-    We will stop when r will be smaller than the size of the array(r<sizeofArray)
+    We will stop when r will be greater than the size of the array(r>sizeofArray)
     
     So the basic algo will be:
     while(r<n-1)
