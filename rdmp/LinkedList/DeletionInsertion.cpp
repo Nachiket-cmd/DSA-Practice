@@ -78,7 +78,6 @@ Node* deleteElementele(Node* head, int ele)
 {
   Node* temp = head;
   Node* prev = NULL;
-  int count = 0;
   if(temp->data == ele) //array is of size 1 and element is the first one, i.e head.
   {
     free(temp);  
@@ -138,7 +137,7 @@ Node* insertTail(Node* head, val)
   Node* temp = head;
   while(temp->next != NULL)
   {
-    temp->next;
+    temp = temp->next;
   }
   temp->next = newNode;
   return head;
