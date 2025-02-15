@@ -48,11 +48,26 @@ void preorder(node)
 //Inorder (DFS)
 void Inorder(node)
 {
-    if(node->left == NULL) 
-    {
-      print(node);
-      return; 
-    }
+    if(node == NULL) return;
     Inorder(node->left);
+    print(node);
     Inorder(node->right);
+}
+
+//Preorder (DFS)
+void Preorder(node)
+{
+    if(node->data == NULL) return;
+    print(node);
+    Preorder(node->left);
+    Preorder(node->right);
+}
+
+//Postorder (DFS)
+void Postorder(node)
+{
+    if(node->data == NULL) return;
+    Postorder(node->left);
+    Postorder(node->right);
+    print(node);
 }
