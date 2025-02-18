@@ -76,16 +76,16 @@ void Postorder(node)
 //Levelorder (BFS). TC - O(n) SC - O(n)
 vector<vector<int>>Levelorder(Node* root)
 {
-   vector<vector<int>>ans;
-   if(root == NULL) return ans;
-   queue<Node*>q;
-   while(!q.empty())
+   vector<vector<int>>ans;  //making a vector to store and return the ans.
+   if(root == NULL) return ans; // if the BT is empty, simply return nothing.
+   queue<Node*>q; // queue to traverse through every level.
+   while(!q.empty()) // when the queue will be empty, it means that we have traversed the entire BT.
    {
-    int size = q.size();
-    vector<int>level;
-    for(int i = 0 ; i<size ; i++)
+    int size = q.size();  // the size will be used to traverse that many times in the loop, which will tell us about how many elements are there in the level.
+    vector<int>level;   // vector to store each level.
+    for(int i = 0 ; i<size ; i++) 
     {
-        Node *node = q.front();
+        Node *node = q.front(); //we will start from front as FIFO and we will go from left to right like a BT
         q.pop();
         if(node->left != NULL) q.push(node->left);
         if(node->right != NULL) q.push(node->right);
@@ -95,3 +95,5 @@ vector<vector<int>>Levelorder(Node* root)
    }
    return ans;
 }
+
+
