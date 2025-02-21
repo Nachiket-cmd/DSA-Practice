@@ -8,7 +8,7 @@ void PreOrderIterative(Node* root)
     st.push(root);
     while(!=st.empty())
     {
-        Node *node = st.top();
+        Node* node = st.top();
         st.pop(node);
         print(node->data);
         if(node->right != NULL) st.push(node->right);
@@ -29,10 +29,17 @@ void InorderIterative(Node* root)
         }
         else {
             if(st.empty() == true) break;
-            node = st.top();
+            node = st.top(); //this will work because it will again go to NULL and then st.top will be the element above the prev one in the stack
             st.pop();
             print(node->data);
             node = node->right;
         }
     }
 }
+
+
+//PostOrder Traversal Iterative using 2 Stacks
+// Left Right Root
+
+
+
