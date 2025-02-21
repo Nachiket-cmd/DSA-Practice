@@ -40,6 +40,35 @@ void InorderIterative(Node* root)
 
 //PostOrder Traversal Iterative using 2 Stacks
 // Left Right Root
+void PostOrderIterative2Stack(Node* root)
+{
+    stack<Node*>st1;
+    stack<Node*>st2;
+    Node* node = root;
+    while(true)
+    {
+        if(node!=NULL)
+        {
+         st1.push(node);
+         if(node->left != NULL) node = node->left;
+        }
+        else{
+         if(st1.empty())break;
+         node = st1.top();
+         if(node->right != NULL) st1.push(node->right);
+         st1.pop();
+         st2.push(node);
+         node = st.top();
+    }
+
+    while(st2.empty()
+    {
+        print(st2.top());
+        st2.pop();
+    }
+
+})
+}
 
 
 
