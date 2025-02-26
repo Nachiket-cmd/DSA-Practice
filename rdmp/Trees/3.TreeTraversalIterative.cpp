@@ -133,3 +133,6 @@ void PostOrderIterative1Stack(Node* root)
         }
     }
 }
+
+
+/*Striver Logic: So, for postorder, the traversal is left right root. So, for that.. */
