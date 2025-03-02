@@ -136,3 +136,36 @@ void PostOrderIterative1Stack(Node* root)
 
 
 /*Striver Logic: So, for postorder, the traversal is left right root. So, for that.. */
+vector<int>postOrdIterativeStack1(Node* root)
+{
+    stack<Node*>st;
+    vector<int>ans;
+    Node* check = root;
+    while(!st.isEmpty() || check != NULL)
+    { 
+       if(check != NULL)
+       {
+         st.push(check);
+         check = check->left;
+       }  
+       else{ //when there is nothing on left of the node, we will then go right.
+        Node* temp = check.top()->right;
+        if(temp == NULL) // this is for if there is nothing on the right. This means that we have check left and right now. So now we will go to the stack and start popping.
+        {
+          temp = st.top();
+          st.pop();
+          ans.push_back(temp);
+          while(!st.empty() || temp == st.top()->right) // we, will keep on popping until either the stack is empty or there is not other element left on right. 
+          {
+            temp = st.top();
+            st.pop();
+            ans.push_back(temp);
+          }
+        }
+        else{ //if there is any element on the right we will take our check pointer to the right.
+            check = temp;
+        }
+       }
+    }
+    return ans;
+}
