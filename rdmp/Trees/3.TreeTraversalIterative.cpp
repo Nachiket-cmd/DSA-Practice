@@ -72,11 +72,13 @@ Left Right Root, and Stack is LIFO. So, we put right first as left will be the f
 // })
 // }
 
-/*The basic idea is to use 2 stacks st1 and st2. We will first insert the root into st1. 
-- Pop the top of st1(root in this case).
-- Check if the popped element has anything in its left and then right side. If yes push it into st1.
-- If the element at st1.top(node) is NULL. we will simply pop it out and as in the same wzy as we did before. After this again point node to st1.top
-- The moment our st1 will be empty. It will mean that we are done with the postorder traversal.*/
+/*
+ The basic idea is to use 2 stacks st1 and st2. We will first insert the root into st1. 
+  - Pop the top of st1(root in this case).
+  - Check if the popped element has anything in its left and then right side. If yes push it into st1.
+  - If the element at st1.top(node) is NULL. we will simply pop it out and in the same way as we did before. After this again point node to st1.top
+  - The moment our st1 will be empty. It will mean that we are done with the postorder traversal.
+*/
 void PostOrderIterative2Stack(Node* root)
 {
     if(root == NULL) return;
@@ -93,7 +95,8 @@ void PostOrderIterative2Stack(Node* root)
             if(node->right != NULL) st1.push(node->right);
             st2.push(node);
         }
-        else {
+        else 
+        {
             if(st1.isEmpty()) break;
         }
         node = st1.top();
@@ -110,28 +113,32 @@ void PostOrderIterative2Stack(Node* root)
 
 
 //Post Order Iterative Using one stack.
-//My Initial thought is that we can make the traversal as Root Right Left and push the elements into the stack in this manner.
+//My Initial thought is that we can simply push the elements in the same way we did in 2 stacks one and then, instead of using the other stack. 
+//We can push the answer to the vector and reverse it. 
 
-void PostOrderIterative1Stack(Node* root)
+vector<int>PostOrderIterative1Stack(Node* root)
 {
     if(root == NULL) return;
-    stack<Node*>st;
+    stack<Node*>st1;
     Node* node = root;
+    st1.push(node);
     while(true)
     {
         if(node != NULL)
         {
-            st.push(node);
-            if(node->right != NULL)
-            {
-
-            }
-            else if(node->left != NULL)
-            {
-
-            }
+            st1.pop();
+            if(node->left != NULL) st1.push(node->left);
+            if(node->right != NULL) st1.push(node->right);
+            ans.push_back(node);
         }
+        else 
+        {
+            if(st1.isEmpty()) break;
+        }
+        node = st1.top();
     }
+    reverse(ans.begin(),ans.end());
+    return ans;
 }
 
 
