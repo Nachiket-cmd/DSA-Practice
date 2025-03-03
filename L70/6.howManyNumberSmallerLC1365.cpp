@@ -31,7 +31,7 @@ class Solution {
 }
 
 
-//the solution which i found is the best. TC - O(n)
+//the solution which i found is the best. TC - O(nlogn)
 class Solution {
   public:
       vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
