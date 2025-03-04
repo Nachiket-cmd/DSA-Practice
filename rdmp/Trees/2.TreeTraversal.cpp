@@ -60,7 +60,7 @@ void Preorder(node)
     if(node->data == NULL) return;
     print(node);
     Preorder(node->left);
-    Preorder(node->right);
+    Preorder(node->right); 
 }
 
 //Postorder (DFS)
