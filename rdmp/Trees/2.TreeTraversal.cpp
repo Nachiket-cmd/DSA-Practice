@@ -79,7 +79,7 @@ We will be using a queue for level order traversal. ans is used as a vec<vec>> t
 going through the code.*/
 vector<vector<int>>Levelorder(Node* root)
 {
-   vector<vector<int>>ans;  //making a vector to store and return the ans.
+   vector<vector<int>>ans;  //making a vector to store the level order.
    if(root == NULL) return ans; // if the BT is empty, simply return nothing.
    queue<Node*>q; // queue to traverse through every level.
    q.push(root);
