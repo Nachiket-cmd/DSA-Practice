@@ -17,6 +17,44 @@ All the questions generally will use 2 pointers (we can take them as l and r)
      MaxSum = max(MaxSum,sum);
     }
 
+    //lets say the input array is 2,5,6,1,5,2,5,1 and the given fixed window size is 3.
+
+    int maxSum(vector<int>arr, int wSize)
+    {
+      int l=0;
+      int r=0;
+      int maxS = 0;
+      while(r<(arr.size()-1))
+      {
+        int currS = 0;
+        if((r-l+1)<=arr.size())
+        {
+          currS += arr[r];
+          r++;
+        }
+        else{
+         maxS = max(maxS, currS);
+         currS -= arr[l];
+         l++;
+        }
+      }
+        return maxS;
+      
+    
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
   2.  Longest Subarray or Substring(Dynamic Window): In this you basically will be asked to find the size of the subarray
       which will have the sum less than the given sum. The questions can change as well but the concept will
       remain the same. You are required to find that CONSECUTIVE ELEMENTS subarray which will satisfy the 
