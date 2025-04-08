@@ -17,13 +17,14 @@ All the questions generally will use 2 pointers (we can take them as l and r)
      MaxSum = max(MaxSum,sum);
     }
 
-    //lets say the input array is 2,5,6,1,5,2,5,1 and the given fixed window size is 3.
+    //lets say the input array is 2,5,6,1,5,2,5,1 and the given fixed window size is 3. you are required to find the max sum with WSize of 3.
 
     int maxSum(vector<int>arr, int wSize)
     {
       int l=0;
       int r=0;
       int maxS = 0;
+      int currS = 0;
       while(r<(arr.size()-1))
       {
         int currS = 0;
@@ -39,8 +40,6 @@ All the questions generally will use 2 pointers (we can take them as l and r)
         }
       }
         return maxS;
-      
-    
     }
 
     
@@ -60,38 +59,32 @@ All the questions generally will use 2 pointers (we can take them as l and r)
       remain the same. You are required to find that CONSECUTIVE ELEMENTS subarray which will satisfy the 
       condition of the given question.
 
+      Brute force:
       In Interviews, we will start with brute force(generating all the subarrays which will be O(n^2)) and then move on to the 
       optimal one.
 
-      Better solution: O(2n)
+
+
+      Better solution: 
+      
+      O(2n)
       - Use 2 pointers: l and r
       - Start with a subarray of size 1. (l and r at 0 index)
       - l : use for shrinking (left side )
       - r : use for expanding ( right side)
-      - Keep on increasing/decreasing the window size until the condition given holds true.
+      - Keep on increasing the window size until the condition given holds true.
+      - the moment the condition holds false, shrink the window by moving l ahead. 
       - length of the window in every step will be: (r-l+1)
       - Now whenever the condition voilates, try to make the condition true by shriking from left
       to make the W Size true.
 
-      Basic Algo:
-      l=0;
-      r=0;
-      sum = 0;
-      maxSize = 0;
-      while(r<n)
-      {
-        sum = sum + arr[r];
-        while(sum > k )
-        {
-          sum = sum - arr[l];
-          l++;
-        }
-      if(sum<=k)
-        {
-          maxSize = max(maxSize,(r-l+1));
-        }
-      r++;
-      }
+     Algo:
+
+
+
+
+
+
 
       Optimal Solution: O(n)
       - For optimizing further, 
