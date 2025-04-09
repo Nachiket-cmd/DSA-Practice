@@ -79,7 +79,27 @@ All the questions generally will use 2 pointers (we can take them as l and r)
       to make the W Size true.
 
      Algo:
+     Given Array: [2, 5, 1, 10, 10] K = 14
+     Return the max length subarray whose elements sum will be less than 14
 
+     int l=0 , r=0;
+     int sum = 0;
+     vector<int>ans;
+     while(r<n)
+     {
+       if(sum > K)
+       { 
+         ans.erase(ans.begin() + l);
+         sum = sum - arr[l];
+         l++;
+       }
+       else 
+       {
+        sum += arr[r];
+        ans.push_back(arr[r]);
+        r++;
+       }
+     }
 
 
 
