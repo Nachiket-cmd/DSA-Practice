@@ -17,3 +17,5 @@ int main()
   cout<<ans<<endl;
   return 0;
 }
+
+//TC - O(2^n)
