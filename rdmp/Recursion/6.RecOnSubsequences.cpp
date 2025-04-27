@@ -28,6 +28,7 @@ void printSubsequence(int count, int arr[], vector<int> &subseq, int n)
 
    // not pick, or not take condition, this element is not added to your subsequence.
    printSubsequence(count+1, arr, subseq, n); 
+   
 }
 
 
