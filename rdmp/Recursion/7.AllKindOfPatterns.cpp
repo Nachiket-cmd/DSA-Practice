@@ -21,6 +21,8 @@ void subseqwithSumK(int index, int arr[], vector<int> &subs, int sum,int k, int 
 }
 
 
+
+
 int main() {
     int arr[] = {1,2,1,1};
     int k = 3;
