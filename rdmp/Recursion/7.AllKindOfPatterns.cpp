@@ -53,6 +53,25 @@ bool getoneSubseq(int index, int arr[], vector<int> &subs, int sum, int k, int n
   }
 }
 
+/* You are supposed to tell that how many subsequences have the sum of K.*/
+int noOfSubsequencesSumK(int index, int arr[], vector<int>&subs, int sum, int k, int n, int count)
+{
+  if(index == n)
+  {
+    if(sum == k) 
+    {
+      count++;
+    }
+    return count;
+  }
+  subs.push_back(arr[index]);
+  sum += arr[index];
+  int x = noOfSubsequencesSumK(index+1,arr,subs,sum,k,n,count);
+  subs.pop_back();
+  sum -= arr[index];
+  int y = noOfSubsequencesSumK(index+1,arr,subs,sum,k,n,count);
+  return x+y;
+}
 
 
 
@@ -61,5 +80,8 @@ int main() {
     int k = 3;
     int sum = 0;
     vector<int>subs;
-    subseqwithSumK(0, arr, subs,sum,k,4);
+    // subseqwithSumK(0, arr, subs,sum,k,4);
+    int ans = noOfSubsequencesSumK(0,arr,subs,sum,k,4,0);
+    cout<<ans;
+    return 0;
 }
