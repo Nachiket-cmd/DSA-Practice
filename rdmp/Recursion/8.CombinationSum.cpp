@@ -3,7 +3,7 @@ using namespace std;
 
 void combinationSum(int index, vector<int>arr, vector<int>subs, vector<vector<int>>ans,int target)
 {
-    if(index == arr.size())
+    if(index == arr.size() || target < 0)
     {
         if(target == 0)
         {
