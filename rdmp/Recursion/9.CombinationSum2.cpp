@@ -18,6 +18,7 @@ answer: [1, 1, 2], [2, 2]
    2. If the target becomes in any step, it simply means that our subs is holdig one of the possible subsequences, so push it to ans. 
    3. If target is not 0 and we have reached arr.size(). It simply means that the current subs is not the correct one. 
 
+   
 */
 
 #include<bits/stdc++.h>
