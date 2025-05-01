@@ -36,7 +36,7 @@ void combinationSumII(int index, vector<int>arr, vector<int>subs, vector<vector<
      for(int i = index ; i < arr.size() ; i++)
      {
         if(i>index && (arr[i]==arr[i - 1]) continue;
-        if(arr[i]>target) break;
+        if(arr[i]>target) break  ;
 
         subs.push_back(arr[i]);
         combinationSumII(i+1, arr, subs, ans, target - arr[i]);
