@@ -73,6 +73,20 @@ int noOfSubsequencesSumK(int index, int arr[], vector<int>&subs, int sum, int k,
   return x+y;
 }
 
+//My approach without using extra ds data structure.
+int printS(int index, vector<int>&nums, int count, int sum)
+{
+  if(index == nums.size())
+  {
+    if(sum == 0) return 1;
+    else return 0;
+  } 
+    int l = printS(index+1,nums,count,sum-nums[index]);
+    
+    int r = printS(index+1,nums,count,sum);
+    return l+r;
+}
+
 
 
 int main() {
