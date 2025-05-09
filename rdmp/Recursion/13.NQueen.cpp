@@ -10,26 +10,26 @@ class Solution {
             int duprow = row;
             int dupcol = col;
     
-            while(row>=0 && col>=0)
+            while(row>=0 && col>=0) //for lower diagonal
             {
-                if(board[row][col]=='Q') return false;
+                if(board[row][col]=='Q') return false;     //if we find any Q along that diagonal. not a possible answer
                 row--;
                 col--;
             }
     
-            col = dupcol;
+            col = dupcol; //bring the pointer back to where we started from. 
             row = duprow;
-            while(col>=0)
+            while(col>=0) //checking for the middle diagonal
             {
-                if(board[row][col]=='Q') return false;
+                if(board[row][col]=='Q') return false; //if found anything along that diagonal, return false. else we good.
                 col--;
             }
     
-            row = duprow;
+            row = duprow; //bring back the pointer to its original place
             col = dupcol;
-            while(row<n && col>=0)
+            while(row<n && col>=0) //for upper diagonal
             {
-                if(board[row][col] == 'Q') return false;
+                if(board[row][col] == 'Q') return false; 
                 row++;
                 col--;
             }
@@ -45,11 +45,11 @@ class Solution {
                 return;
             }
     
-            for( int row = 0 ; row<n ; row++)
+            for( int row = 0 ; row<n ; row++) //try every row from 0 to n-1 and check is it safe to place a queen at that particular position.
             {
                 if(isSafe1(row,col,board,n)) {
-                    board[row][col] = 'Q';
-                    solve(col+1,board,ans,n);
+                    board[row][col] = 'Q'; //if safe, place the queen at that spot.
+                    solve(col+1,board,ans,n); //then call the recursion for the next column. 
                     board[row][col] = '.'; //backtrack step. When we come back from recursion, make sure to take away that Q for other recursions ahead.
                 }
             }
@@ -59,15 +59,16 @@ class Solution {
     
     
     public:
-        vector<vector<string>> solveNQueens(int n) {
-            vector<vector<string>>ans;
-            vector<string>board(n);
-            string s(n,'.'); //creating a string of size s with empty places for board building.
+        vector<vector<string>> solveNQueens(int n)  // nxn vector of strings. this will be our answer(the entire chess board)
+        { 
+            vector<vector<string>>ans; // nxn vector of strings. this will be our answer(the entire chess board)
+            vector<string>board(n); //these are the strings(rows), which we will put into our ans data structure. The combination of all these strings will be our final chess board.
+            string s(n,'.'); //creating a string named s of size n with empty spaces. 
             for(int i = 0; i < n ; i++)
             {
-                board[i] = s;
+                board[i] = s; //putting these empty strings into the board vector so that we can work with them on placing the queen.
             }
-            solve(0,board,ans,n);
+            solve(0,board,ans,n); //giving the 0th column, passing the board, ans which will store the answer and the number of rows/cols in the board.
             return ans;
         }
     };
